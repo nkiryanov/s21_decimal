@@ -7,7 +7,7 @@ START_TEST(zero_decimal_set_31_bit_to_one) {
 
   s21_change_sign(&decimal);
 
-  ck_assert_int_eq(decimal.bits[3], 1); // Comparing with 1 cuz other bit 0
+  ck_assert_int_eq(decimal.bits[3], 1);  // Comparing with 1 cuz other bit 0
 }
 END_TEST
 
@@ -17,13 +17,13 @@ START_TEST(zero_negative_decimal_set_31_bit_to_zero) {
 
   s21_change_sign(&decimal);
 
-  ck_assert_int_eq(decimal.bits[3], 0); // Comparing with 1 cuz other bit 0
+  ck_assert_int_eq(decimal.bits[3], 0);  // Comparing with 1 cuz other bit 0
 }
 END_TEST
 
 // You should rewrite it when decimal comparing will be ready
 START_TEST(do_not_change_any_other_bits) {
-  s21_decimal decimal = {{1, 2, 34, 37}}; // Other bits are filled
+  s21_decimal decimal = {{1, 2, 34, 37}};  // Other bits are filled
   s21_decimal same_value_decimal = {{1, 2, 34, 37}};
 
   s21_change_sign(&decimal);

@@ -42,8 +42,8 @@ lint:
 
 test: tests
 
-# tests: CFLAGS += --coverage -g
-# tests: LDFLAGS += --coverage
+tests: CFLAGS += --coverage -g
+tests: LDFLAGS += --coverage
 tests: CFLAGS += $(shell pkg-config --cflags-only-I check)
 tests: LDLIBS += $(shell pkg-config --libs check)
 tests: $(TEST_EXEC)

@@ -1,0 +1,39 @@
+name: Lint and test
+
+on:
+  push:
+
+jobs:
+  lint-build-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        id: setup-python
+        with:
+          python-version: "3.10.8"
+
+      - name: install dependencies
+        run: sudo apt-get install check lcov -y
+
+      - name: lint
+        run: make lint
+
+      - name: build is ok
+        run: make
+
+      - name: test
+        run: make test
+
+      - name: gcov coverage report
+        run: make coverage_report
+
+      - name: upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+
+      - name: try to gen gcov_report
+        run: make gcov_report

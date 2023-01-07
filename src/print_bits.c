@@ -36,10 +36,8 @@ int main() {
   s21_decimal decimal_2 = {0};
   print_bits(sizeof(decimal), &decimal);
 
-  // s21_change_sign(&decimal);
+  s21_change_sign(&decimal);
 
-  if (decimal == decimal_2) printf("its ok");
-
-  // printf("changed bits=\n");
-  // print_bits(sizeof(decimal), &decimal);
+  printf("changed bits=\n");
+  print_bits(sizeof(decimal), &decimal);
 }

@@ -51,5 +51,14 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# VSCode settings
+# C profile data
+*.gcda
+*.gcno
+coverage/
+coverage.info
+
+# VSCode stuff
 .vscode/
+
+# macOS garbage
+.DS_Store
